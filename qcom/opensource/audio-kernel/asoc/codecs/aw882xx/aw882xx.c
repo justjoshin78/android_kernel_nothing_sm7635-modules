@@ -3144,7 +3144,7 @@ static struct i2c_driver aw882xx_i2c_driver = {
 	.id_table = aw882xx_i2c_id,
 };
 
-#if IS_ENABLED(CONFIG_NOTHING_IS_FROGGER)
+#if IS_ENABLED(CONFIG_NOTHING_IS_FROGGER) && IS_ENABLED(CONFIG_OEM_BOOTINFO)
 extern char audio_info[32];
 #endif
 static int __init aw882xx_i2c_init(void)
@@ -3156,7 +3156,7 @@ static int __init aw882xx_i2c_init(void)
 	ret = i2c_add_driver(&aw882xx_i2c_driver);
 	if (ret)
 		aw_pr_err("fail to add aw882xx device into i2c");
-#if IS_ENABLED(CONFIG_NOTHING_IS_FROGGER)
+#if IS_ENABLED(CONFIG_NOTHING_IS_FROGGER) && IS_ENABLED(CONFIG_OEM_BOOTINFO)
     snprintf(audio_info, sizeof(audio_info),"aw882xx-%s", AW882XX_DRIVER_VERSION);
 #endif
 	return ret;
