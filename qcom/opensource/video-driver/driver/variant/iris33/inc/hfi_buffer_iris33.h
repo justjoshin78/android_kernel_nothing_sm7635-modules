@@ -7,6 +7,7 @@
 #ifndef __HFI_BUFFER_IRIS3_3__
 #define __HFI_BUFFER_IRIS3_3__
 
+#include <linux/minmax.h>
 #include <linux/types.h>
 #include "hfi_property.h"
 
